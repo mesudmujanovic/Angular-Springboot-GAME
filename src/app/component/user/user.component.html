@@ -1,3 +1,14 @@
 <p>user works!</p>
 
-<button (click)="zavrsiKviz()">Button</button>
+<form [formGroup]="userForm" (ngSubmit)="onUser()">
+       <label for="username">User Name</label>
+       <input type="text" name="username" formControlName="username">
+    <button type="submit">Button</button>
+</form>
+
+<div *ngIf="users$ | async as users">
+<h4 *ngFor="let allusers of users">
+{{allusers.username}}
+{{allusers.userscore}}
+</h4>
+</div>

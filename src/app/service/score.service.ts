@@ -5,9 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class ScoreService {
 
-  private userScore: number = 0;
+   private userScore: number = 0;
 
-  constructor() { }
+  constructor() { 
+  }
 
   setScore(score:number){
     this.userScore+= score;
