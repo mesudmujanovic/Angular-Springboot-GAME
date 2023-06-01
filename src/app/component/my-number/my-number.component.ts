@@ -21,12 +21,10 @@ export class MyNumberComponent {
   currentDivIndex: number = 1;
   result: number;
   public counter: number = 60
-  public intervall: any
   public toShow: any;
   public currValue: string = '';
-
-
-
+  public counterButton: number = 0;
+  public score: number = 0;
 
   constructor(private http: HttpClient,
     private myNumberService: MyNumberService) { }
@@ -41,11 +39,17 @@ export class MyNumberComponent {
       for (let i = 0; i < divs.length; i++) {
         const div = divs[i];
         if (div.id !== currentDiv.id || i === divs.length - 1) {
-          div.classList.remove('numSpin');
-        } 
+          div.classList.remove('numSpin');           
+        }
       }
     }
+    const calcDiv = document.getElementsByClassName('containerCalc')[0];    
     this.currentDivIndex++;
+    this.counterButton++;
+    console.log(this.counterButton);
+    if(this.counterButton === 6){
+      calcDiv.classList.remove('hide')
+    }
   }
 
   getAllNumbers(): Observable<MyNumber[]> {
@@ -77,7 +81,7 @@ export class MyNumberComponent {
 
       }
     )
-  };
+  }
 
   equals() {
     const allNumbers = [
@@ -88,7 +92,7 @@ export class MyNumberComponent {
       this.num5.toString(),
       this.num6.toString()
     ];
-  
+
     const enteredNumbers = this.toShow.match(/\d+/g);
     if (
       enteredNumbers.every((everyNumber) => {
@@ -98,7 +102,9 @@ export class MyNumberComponent {
       try {
         this.toShow = eval(this.toShow);
         alert("Čestitamo! Pogodili ste tačan broj!");
+        this.score += 10;
         location.reload();
+        console.log(this.score);
       } catch (err) {
         console.log(err);
       }
@@ -109,39 +115,12 @@ export class MyNumberComponent {
       location.reload();
     }
   }
-  
-
-  // equals() {
-  //   const allowedCharactersRegex = /^[0-9()+\-*/.\s]+$/;
-  //   if (!allowedCharactersRegex.test(this.currValue)) {
-  //     this.toShow = "Nedozvoljeni karakteri u izrazu";
-  //     return;
-  //   }
-  
-  //   this.toShow = eval(this.currValue);
-  //   if (this.toShow === this.result) {
-  //     const numbers = [this.num1, this.num2, this.num3, this.num4, this.num5, this.num6];
-  //     const containsNumbersOutside = numbers.every(num => this.toShow.toString().includes(num.toString()));
-  
-  //     if (containsNumbersOutside) {
-  //       this.toShow = "Čestitamo!";
-  //     } else {
-  //       this.toShow = "Broj ne postoji u num1, num2, num3, num4, num5 ili num6";
-  //     }
-  //   } else {
-  //     this.toShow = "Slabo!";
-  //   }
-  // }
-  
-  
-  
 
   writeToInput(value: string) {
     this.currValue = this.currValue + value;
     this.toShow = this.currValue;
   }
 
- 
   clear() {
     this.toShow = '0'
   }
@@ -150,6 +129,5 @@ export class MyNumberComponent {
     this.currValue = this.currValue.slice(0, -1);
     this.toShow = this.currValue;
   }
-
 
 }
