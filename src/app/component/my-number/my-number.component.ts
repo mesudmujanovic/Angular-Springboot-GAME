@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { MyNumberService } from 'src/app/service/my-number.service';
 import { Observable, catchError, of } from 'rxjs';
 import { MyNumber } from 'src/app/interface/MyNumber-Interface';
+import { ScoreService } from 'src/app/service/score.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-number',
@@ -27,7 +29,9 @@ export class MyNumberComponent {
   public score: number = 0;
 
   constructor(private http: HttpClient,
-    private myNumberService: MyNumberService) { }
+    private myNumberService: MyNumberService,
+    private serviceScore: ScoreService,
+    private router: Router) { }
 
   addNumToDivs() {
     const currentNum = this['num' + this.currentDivIndex];
@@ -103,7 +107,10 @@ export class MyNumberComponent {
         this.toShow = eval(this.toShow);
         alert("Čestitamo! Pogodili ste tačan broj!");
         this.score += 10;
-        location.reload();
+        const nowScore = this.serviceScore.getScore();
+        const allScore = nowScore + this.score;
+        this.serviceScore.setScore(allScore);
+        this.router.navigate(['/user']);
         console.log(this.score);
       } catch (err) {
         console.log(err);
@@ -112,7 +119,8 @@ export class MyNumberComponent {
       alert(
         "Žao nam je, niste pobedili!! Broj koji ste uneli ne pripada grupi vaših izabranih brojeva, pokušajte ponovo"
       );
-      location.reload();
+      this.router.navigate(['/user']);
+      // location.reload();
     }
   }
 

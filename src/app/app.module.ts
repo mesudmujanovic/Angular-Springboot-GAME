@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { MyNumberComponent } from './component/my-number/my-number.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './component/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MyNumberComponent
+    MyNumberComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
