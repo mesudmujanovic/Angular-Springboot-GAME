@@ -3,35 +3,38 @@ package slagalica.quiz.infrastucture.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import slagalica.quiz.infrastucture.Request.QuizRequest;
-import slagalica.quiz.infrastucture.Response.QuizResponse;
+import slagalica.quiz.infrastucture.Request.QuizMyNumberRequest;
+import slagalica.quiz.infrastucture.Response.QuizMyNumberResponse;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class QuizDTO {
+public class QuizMyNumberDTO {
 
     private Long id;
     private int number1;
     private int number2;
     private int number3;
     private int number4;
-
+    private int number5;
+    private int number6;
     private int result;
 
-    public static QuizDTO fromRequestToDto(QuizRequest quizRequest){
-        QuizDTO quizDTO = new QuizDTO();
+    public static QuizMyNumberDTO fromRequestToDto(QuizMyNumberRequest quizRequest){
+        QuizMyNumberDTO quizDTO = new QuizMyNumberDTO();
         quizDTO.setResult(quizRequest.getResult());
         return quizDTO;
     }
 
-    public QuizResponse fromDtoToResponse(){
-        QuizResponse quizResponse = new QuizResponse();
+    public QuizMyNumberResponse fromDtoToResponse(){
+        QuizMyNumberResponse quizResponse = new QuizMyNumberResponse();
         quizResponse.setId(this.getId());
         quizResponse.setNumber1(this.getNumber1());
         quizResponse.setNumber2(this.getNumber2());
         quizResponse.setNumber3(this.getNumber3());
         quizResponse.setNumber4(this.getNumber4());
+        quizResponse.setNumber5(this.getNumber5());
+        quizResponse.setNumber6(this.getNumber6());
         quizResponse.setResult(this.getResult());
         return quizResponse;
     }

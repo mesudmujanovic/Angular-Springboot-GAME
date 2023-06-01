@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "quiz")
 @Entity
 @Data
-public class QuizEntity {
+public class QuizMyNumberEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,10 @@ public class QuizEntity {
     private int number3;
 
     private int number4;
+
+    private int number5;
+
+    private int number6;
 
     private int result;
 }

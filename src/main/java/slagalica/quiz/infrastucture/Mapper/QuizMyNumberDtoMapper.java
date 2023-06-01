@@ -1,21 +1,23 @@
 package slagalica.quiz.infrastucture.Mapper;
 
-import slagalica.quiz.Enitity.QuizEntity;
+import slagalica.quiz.Enitity.QuizMyNumberEntity;
 import slagalica.quiz.Intergration.DtoMapper;
-import slagalica.quiz.infrastucture.dto.QuizDTO;
+import slagalica.quiz.infrastucture.dto.QuizMyNumberDTO;
 
-public enum QuizDtoMapper implements DtoMapper<QuizDTO, QuizEntity> {
+public enum QuizMyNumberDtoMapper implements DtoMapper<QuizMyNumberDTO, QuizMyNumberEntity> {
     INSTANCE;
 
 
     @Override
-    public QuizDTO apply(QuizEntity quizEntity) {
-        QuizDTO quizDTO = new QuizDTO();
+    public QuizMyNumberDTO apply(QuizMyNumberEntity quizEntity) {
+        QuizMyNumberDTO quizDTO = new QuizMyNumberDTO();
         quizDTO.setId(quizEntity.getId());
         quizDTO.setNumber4(quizEntity.getNumber4());
         quizDTO.setNumber3(quizEntity.getNumber3());
         quizDTO.setNumber2(quizEntity.getNumber2());
         quizDTO.setNumber1(quizEntity.getNumber1());
+        quizDTO.setNumber5(quizEntity.getNumber5());
+        quizDTO.setNumber6(quizEntity.getNumber6());
         quizDTO.setResult(quizEntity.getResult());
         return quizDTO;
     }

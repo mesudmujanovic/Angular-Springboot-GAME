@@ -3,7 +3,7 @@ package slagalica.quiz.infrastucture.Response;
 import lombok.Data;
 
 @Data
-public class QuizResponse {
+public class QuizMyNumberResponse {
     private Long id;
 
     private int number1;
@@ -13,6 +13,10 @@ public class QuizResponse {
     private int number3;
 
     private int number4;
+
+    private int number5;
+
+    private int number6;
 
     private int result;
 }
