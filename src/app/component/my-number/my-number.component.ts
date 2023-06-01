@@ -39,15 +39,15 @@ export class MyNumberComponent {
       for (let i = 0; i < divs.length; i++) {
         const div = divs[i];
         if (div.id !== currentDiv.id || i === divs.length - 1) {
-          div.classList.remove('numSpin');           
+          div.classList.remove('numSpin');
         }
       }
     }
-    const calcDiv = document.getElementsByClassName('containerCalc')[0];    
+    const calcDiv = document.getElementsByClassName('containerCalc')[0];
     this.currentDivIndex++;
     this.counterButton++;
     console.log(this.counterButton);
-    if(this.counterButton === 6){
+    if (this.counterButton === 6) {
       calcDiv.classList.remove('hide')
     }
   }
