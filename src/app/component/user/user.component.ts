@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BehaviorSubject, Observable, catchError, of, switchMap, tap } from 'rxjs';
+import { Observable, catchError, of, switchMap, tap } from 'rxjs';
 import { User } from 'src/app/interface/User-Interface';
 import { ScoreService } from 'src/app/service/score.service';
 import { UserService } from 'src/app/service/user.service';

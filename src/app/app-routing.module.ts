@@ -4,8 +4,8 @@ import { MyNumberComponent } from './component/my-number/my-number.component';
 import { UserComponent } from './component/user/user.component';
 
 const routes: Routes = [
-  {path:'', component: MyNumberComponent },
-  {path:'user', component:UserComponent}
+  // {path:'', component: MyNumberComponent },
+  // {path:'user', component:UserComponent}
 ];
 
 @NgModule({
