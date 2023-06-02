@@ -1,4 +1,17 @@
 package slagalica.quiz.infrastucture.Mapper;
 
-public enum AssociationMapper {
+import slagalica.quiz.Enitity.AssociationEntity;
+import slagalica.quiz.Intergration.DtoMapper;
+import slagalica.quiz.infrastucture.dto.AssociationDto;
+
+public enum AssociationMapper implements DtoMapper<AssociationEntity, AssociationDto> {
+    INSTANCE;
+
+    @Override
+    public AssociationEntity apply(AssociationDto associationDto) {
+        AssociationEntity associationEntity = new AssociationEntity();
+        associationEntity.setId(associationDto.getId());
+        associationEntity.setColumnA(associationDto.getColumnA());
+        return associationEntity;
+    }
 }

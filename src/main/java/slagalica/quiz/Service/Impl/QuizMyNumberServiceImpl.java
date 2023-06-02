@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public class QuizMyNumberServiceImpl implements QuizMyNumberService {
     private final QuizMyNumberRepo quizRepository;
 
+
     public QuizMyNumberServiceImpl(QuizMyNumberRepo quizRepository) {
         this.quizRepository = quizRepository;
     }
