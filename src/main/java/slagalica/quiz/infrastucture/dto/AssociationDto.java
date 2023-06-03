@@ -11,9 +11,18 @@ public class AssociationDto {
     private Long id;
     private List<String> columnA;
 
+    private List<String> columnB;
+
+    private List<String> columnC;
+
+    private List<String> columnD;
+
     public static AssociationDto fromRequestToDto(AssociationRequest associationRequest){
         AssociationDto associationDto = new AssociationDto();
         associationDto.setColumnA(associationRequest.getColumnA());
+        associationDto.setColumnB(associationRequest.getColumnB());
+        associationDto.setColumnC(associationRequest.getColumnC());
+        associationDto.setColumnD(associationRequest.getColumnD());
         return associationDto;
     }
 
@@ -21,6 +30,9 @@ public class AssociationDto {
         AssociationResponse associationResponse = new AssociationResponse();
         associationResponse.setId(this.getId());
         associationResponse.setColumnA(this.getColumnA());
+        associationResponse.setColumnB(this.getColumnB());
+        associationResponse.setColumnC(this.getColumnC());
+        associationResponse.setColumnD(this.getColumnD());
         return associationResponse;
     }
 

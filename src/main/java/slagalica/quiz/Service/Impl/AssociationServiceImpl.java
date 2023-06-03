@@ -10,9 +10,11 @@ import slagalica.quiz.infrastucture.Mapper.AssociationDtoMapper;
 import slagalica.quiz.infrastucture.Mapper.AssociationMapper;
 import slagalica.quiz.infrastucture.dto.AssociationDto;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Transactional
 @Service
 public class AssociationServiceImpl implements AssociationService {
 
@@ -31,9 +33,12 @@ public class AssociationServiceImpl implements AssociationService {
     }
 
     @Override
+    @Transactional
     public List<AssociationDto> getAll() {
         List<AssociationEntity> associationEntities = associationRepo.findAll();
-        return associationEntities.stream().map(AssociationDtoMapper.INSTANCE::apply).collect(Collectors.toList());
+        return associationEntities.stream()
+                .map(AssociationDtoMapper.INSTANCE::apply)
+                .collect(Collectors.toList());
     }
 
 

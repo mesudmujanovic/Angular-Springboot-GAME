@@ -8,4 +8,10 @@ import java.util.List;
 public class AssociationRequest {
     private List<String> columnA;
 
+    private List<String> columnB;
+
+    private List<String> columnC;
+
+    private List<String> columnD;
+
 }

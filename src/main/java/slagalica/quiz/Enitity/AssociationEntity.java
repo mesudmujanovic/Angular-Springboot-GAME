@@ -1,14 +1,10 @@
 package slagalica.quiz.Enitity;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -22,18 +18,17 @@ public class AssociationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     private List<String> columnA;
 
-    public static AssociationEntity getMockAssociation() {
-        List<String> columnA = new ArrayList<>();
-        columnA.add("sssssss");
-        columnA.add("qqqqqqqqq");
-        columnA.add("sssssssss");
-        return  builder()
-                .columnA(columnA)
-                .build();
-    }
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> columnB;
 
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> columnC;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> columnD;
 
 }
+
