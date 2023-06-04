@@ -21,7 +21,6 @@ export class AssociationComponent {
 
   constructor(private assocService: AssociationService) {
     this.itemText = { A: ["a1", "a2", "a3", "a4"], B: ["b1", "b2", "b3", "b4"], C: ["c1", "c2", "c3", "c4"], D: ["d1", "d2", "d3", "d4"] };
-
   }
 
   showText(item: string, column: string, index: number): void {
@@ -31,16 +30,16 @@ export class AssociationComponent {
   handleInputChangeB(): void {
     const solution = this.getSolutionForColumn('columnB');
     if (this.columnBInput === solution) {
-      this.itemText = { B: this.randIndexAssoc.columnB }
-      console.log("tacno");
+      this.itemText['B'] = this.randIndexAssoc.columnB 
+      console.log('Tačno');
     } else {
-      console.log("netacno");
+      console.log('Netačno');
     }
   }
   handleInputChangeC(): void {
     const solution = this.getSolutionForColumn('columnC');
     if (this.columnCInput === solution) {
-      this.itemText = { C: this.randIndexAssoc.columnC }
+      this.itemText['C'] = this.randIndexAssoc.columnC 
       console.log("tacno");
     } else {
       console.log("netacno");
@@ -49,7 +48,7 @@ export class AssociationComponent {
   handleInputChangeD(): void {
     const solution = this.getSolutionForColumn('columnD');
     if (this.columnDInput === solution) {
-      this.itemText = { D: this.randIndexAssoc.columnD }
+      this.itemText['D'] = this.randIndexAssoc.columnD 
       console.log("tacno");
     } else {
       console.log("netacno");
@@ -59,8 +58,9 @@ export class AssociationComponent {
   handleInputChangeA(): void {
     const solution = this.getSolutionForColumn('columnA');
     if (this.columnAInput === solution) {
-      this.itemText = { A: this.randIndexAssoc.columnA }
-      console.log('Tačno');
+      this.itemText['A'] = this.randIndexAssoc.columnA;
+
+       console.log('Tačno');
     } else {
       console.log('Netačno');
     }
@@ -88,7 +88,7 @@ export class AssociationComponent {
         this.randIndexAssoc.columnC_solution = this.getSolutionForColumn('columnC');
         this.randIndexAssoc.columnD_solution = this.getSolutionForColumn('columnD');
         console.log("rand", this.randIndexAssoc);
-        console.log('columnA:', this.randIndexAssoc.columnA_solution);
+        console.log('columnB:', this.randIndexAssoc.columnA_solution);
 
       })
     ).subscribe(assoc => {
@@ -99,9 +99,11 @@ export class AssociationComponent {
   getSolutionForColumn(column: string): string {
     const solution = this.randIndexAssoc.solutions.find(s => s.startsWith(column));
     if (solution) {
-      return solution.split('_')[1];
+      const solutionWithoutPrefix = solution.split('_')[1];
+      return solutionWithoutPrefix.replace('solution ', '');
     }
     return '';
   }
+  
 
 }
