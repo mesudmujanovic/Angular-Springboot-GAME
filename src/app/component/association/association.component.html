@@ -1,1 +1,38 @@
-<div *ngFor="let item of col1">{{ item }}</div>
+<div class="flex-container">
+    <div class="column">
+      <div *ngFor="let item of randIndexAssoc.columnA; let i = index" (click)="showText(item, 'A', i)" class="item">
+        <span *ngIf="!itemText['A'][i]">Kliknite da otkrijete</span>
+        <span *ngIf="itemText['A'][i]">{{itemText['A'][i]}}</span>
+      </div>
+     <input type="text" [(ngModel)]="columnAInput"  (change)="handleInputChangeA()">
+    </div>
+  
+    <div class="column">
+      <div *ngFor="let item of randIndexAssoc.columnB; let i = index" (click)="showText(item, 'B', i)" class="item">
+        <span *ngIf="!itemText['B'][i]">Kliknite da otkrijete</span>
+        <span *ngIf="itemText['B'][i]">{{itemText['B'][i]}}</span>
+      </div>
+      <input type="text" [(ngModel)]="columnBInput"  (change)="handleInputChangeB()">
+    </div>
+  </div>
+  
+  <div class="flex-container">
+    <div class="column">
+      <div *ngFor="let item of randIndexAssoc.columnC; let i = index" (click)="showText(item, 'C', i)" class="item">
+        <span *ngIf="!itemText['C'][i]">Kliknite da otkrijete</span>
+        <span *ngIf="itemText['C'][i]">{{itemText['C'][i]}}</span>
+      </div>
+      <input type="text" [(ngModel)]="columnCInput"  (change)="handleInputChangeC()">
+
+    </div>
+  
+    <div class="column">
+      <div *ngFor="let item of randIndexAssoc.columnD; let i = index" (click)="showText(item, 'D', i)" class="item">
+        <span *ngIf="!itemText['D'][i]">Kliknite da otkrijete</span>
+        <span *ngIf="itemText['D'][i]">{{itemText['D'][i]}}</span>
+      </div>
+      <input type="text" [(ngModel)]="columnDInput"  (change)="handleInputChangeD()">
+
+    </div>
+  </div>
+  

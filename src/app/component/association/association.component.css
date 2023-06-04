@@ -1,0 +1,13 @@
+.flex-container {
+    display: flex;
+
+  }
+  
+  .column {
+    flex: 1;
+  }
+  
+  .item {
+    margin: 5px;
+  }
+  
