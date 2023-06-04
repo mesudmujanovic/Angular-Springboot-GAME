@@ -15,6 +15,7 @@ public enum AssociationMapper implements DtoMapper<AssociationEntity, Associatio
         associationEntity.setColumnB(associationDto.getColumnB());
         associationEntity.setColumnC(associationDto.getColumnC());
         associationEntity.setColumnD(associationDto.getColumnD());
+        associationEntity.setSolutions(associationDto.getSolutions());
         return associationEntity;
     }
 }

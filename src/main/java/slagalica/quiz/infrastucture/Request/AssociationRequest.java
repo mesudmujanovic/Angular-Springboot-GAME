@@ -14,4 +14,7 @@ public class AssociationRequest {
 
     private List<String> columnD;
 
+    private List<String> solutions;
+
+
 }

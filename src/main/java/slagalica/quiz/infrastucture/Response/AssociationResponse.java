@@ -16,5 +16,8 @@ public class AssociationResponse {
 
     private List<String> columnD;
 
+    private List<String> solutions;
+
+
 
 }

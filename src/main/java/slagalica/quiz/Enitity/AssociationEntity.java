@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -29,6 +30,19 @@ public class AssociationEntity {
 
     @ElementCollection(fetch = FetchType.LAZY)
     private List<String> columnD;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Column(name = "solution")
+    private List<String> solutions;
+
+
+    public void addSolution(String solution) {
+        if (solutions == null) {
+            solutions = new ArrayList<>();
+        }
+        solutions.add(solution);
+    }
+
 
 }
 
