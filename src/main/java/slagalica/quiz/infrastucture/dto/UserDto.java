@@ -5,7 +5,7 @@ import slagalica.quiz.infrastucture.Request.UserRequest;
 import slagalica.quiz.infrastucture.Response.UserResponse;
 
 @Data
-public class UserDto {
+public class UserDto implements Comparable<UserDto>{
     private Long id;
 
     private int userscore;
@@ -25,5 +25,11 @@ public class UserDto {
         userResponse.setUsername(this.getUsername());
         userResponse.setUserscore(this.getUserscore());
         return userResponse;
+    }
+
+    @Override
+    public int compareTo(UserDto other) {
+        return Integer.compare(other.getUserscore(), this.getUserscore());
+
     }
 }
