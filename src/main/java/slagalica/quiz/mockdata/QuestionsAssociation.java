@@ -8,29 +8,29 @@ import java.util.List;
 public class QuestionsAssociation {
     public static AssociationEntity getMockAssociation() {
         List<String> columnA = new ArrayList<>();
-        columnA.add("poplava");
-        columnA.add("voda");
-        columnA.add("nebo");
-        columnA.add("duga");
+        columnA.add("vatra");
+        columnA.add("cigarete");
+        columnA.add("gust");
+        columnA.add("signal");
 
         List<String> columnB = new ArrayList<>();
-        columnB.add("sunce");
-        columnB.add("more");
-        columnB.add("drvo");
-        columnB.add("livada");
+        columnB.add("maska");
+        columnB.add("metal");
+        columnB.add("staro");
+        columnB.add("krv");
 
 
         List<String> columnC = new ArrayList<>();
-        columnC.add("planina");
-        columnC.add("reka");
-        columnC.add("šuma");
-        columnC.add("trava");
+        columnC.add("djakuzi");
+        columnC.add("kupka");
+        columnC.add("malter");
+        columnC.add("korito");
 
         List<String> columnD = new ArrayList<>();
-        columnD.add("grad");
-        columnD.add("automobil");
-        columnD.add("beton");
-        columnD.add("ulica");
+        columnD.add("snizavanje");
+        columnD.add("pritisak");
+        columnD.add("rampa");
+        columnD.add("tobogan");
 
         AssociationEntity entity = AssociationEntity.builder()
                 .columnA(columnA)
@@ -39,42 +39,42 @@ public class QuestionsAssociation {
                 .columnD(columnD)
                 .build();
 
-        entity.addSolution("columnA_solution kisa");
-        entity.addSolution("columnB_solution cvet");
-        entity.addSolution("columnC_solution ptica");
-        entity.addSolution("columnD_solution svetlo");
-        entity.addFinalSolution("fenix");
+        entity.addSolution("columnA_solution dim");
+        entity.addSolution("columnB_solution gvozdje");
+        entity.addSolution("columnC_solution kada");
+        entity.addSolution("columnD_solution spustanje");
+        entity.addFinalSolution("zavesa");
 
         return entity;
     }
 
     public static AssociationEntity getMockAssociation2() {
         List<String> columnA = new ArrayList<>();
-        columnA.add("plavo");
-        columnA.add("nebo");
-        columnA.add("letenje");
-        columnA.add("ptica");
+        columnA.add("festival");
+        columnA.add("fotro-aparat");
+        columnA.add("horor");
+        columnA.add("televizor");
 
 
         List<String> columnB = new ArrayList<>();
-        columnB.add("žuto");
-        columnB.add("sunce");
-        columnB.add("toplota");
-        columnB.add("energija");
+        columnB.add("odelo");
+        columnB.add("navika");
+        columnB.add("naporan");
+        columnB.add("honorar");
 
 
         List<String> columnC = new ArrayList<>();
-        columnC.add("zeleno");
-        columnC.add("drvo");
-        columnC.add("priroda");
-        columnC.add("ozelenjavanje");
+        columnC.add("odgovor");
+        columnC.add("alergija");
+        columnC.add("akcija");
+        columnC.add("hemija");
 
 
         List<String> columnD = new ArrayList<>();
-        columnD.add("crveno");
-        columnD.add("ljubav");
-        columnD.add("strast");
-        columnD.add("vatromet");
+        columnD.add("pesak");
+        columnD.add("fifa");
+        columnD.add("uefa");
+        columnD.add("stadion");
 
 
         AssociationEntity entity = AssociationEntity.builder()
@@ -84,11 +84,11 @@ public class QuestionsAssociation {
                 .columnD(columnD)
                 .build();
 
-        entity.addSolution("columnA_solution visina");
-        entity.addSolution("columnB_solution svetlost");
-        entity.addSolution("columnC_solution svezina");
-        entity.addSolution("columnD_solution energija");
-        entity.addFinalSolution("vazduh");
+        entity.addSolution("columnA_solution film");
+        entity.addSolution("columnB_solution rad");
+        entity.addSolution("columnC_solution reakcija");
+        entity.addSolution("columnD_solution fudbal");
+        entity.addFinalSolution("akcija");
         return entity;
     }
 
