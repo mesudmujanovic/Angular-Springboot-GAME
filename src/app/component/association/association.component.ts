@@ -12,46 +12,56 @@ export class AssociationComponent {
 
   allAssoc$: Observable<Association[]>
   randIndexAssoc: any;
+  finallSolution: string;
+  finallResult;
   itemText: { [key: string]: string[] };
   columnAInput;
   columnBInput;
   columnCInput;
   columnDInput;
-  showAllColumnAItems: boolean = false;
+  
 
   constructor(private assocService: AssociationService) {
-    this.itemText = { A: ["a1", "a2", "a3", "a4"], B: ["b1", "b2", "b3", "b4"], C: ["c1", "c2", "c3", "c4"], D: ["d1", "d2", "d3", "d4"] };
+    this.itemText = { A: ["A1", "A2", "A3", "A4"], B: ["B1", "B2", "B3", "B4"], C: ["C1", "C2", "C3", "C4"], D: ["D1", "D2", "D3", "D4"] };
   }
 
   showText(item: string, column: string, index: number): void {
     this.itemText[column][index] = item;
   }
 
+  finallColumn(){
+    if(this.finallResult == this.finallSolution){
+      console.log("bravo");
+      this.itemText['A'] = this.randIndexAssoc.columnA
+      this.itemText['B'] = this.randIndexAssoc.columnB 
+      this.itemText['C'] = this.randIndexAssoc.columnC 
+      this.itemText['D'] = this.randIndexAssoc.columnD 
+
+    }else{
+      console.log("lose");
+      
+    }
+  }
+
   handleInputChangeB(): void {
     const solution = this.getSolutionForColumn('columnB');
     if (this.columnBInput === solution) {
       this.itemText['B'] = this.randIndexAssoc.columnB 
-      console.log('Tačno');
     } else {
-      console.log('Netačno');
     }
   }
   handleInputChangeC(): void {
     const solution = this.getSolutionForColumn('columnC');
     if (this.columnCInput === solution) {
       this.itemText['C'] = this.randIndexAssoc.columnC 
-      console.log("tacno");
     } else {
-      console.log("netacno");
     }
   }
   handleInputChangeD(): void {
     const solution = this.getSolutionForColumn('columnD');
     if (this.columnDInput === solution) {
       this.itemText['D'] = this.randIndexAssoc.columnD 
-      console.log("tacno");
     } else {
-      console.log("netacno");
     }
   }
 
@@ -59,10 +69,7 @@ export class AssociationComponent {
     const solution = this.getSolutionForColumn('columnA');
     if (this.columnAInput === solution) {
       this.itemText['A'] = this.randIndexAssoc.columnA;
-
-       console.log('Tačno');
     } else {
-      console.log('Netačno');
     }
   }
 
@@ -87,9 +94,9 @@ export class AssociationComponent {
         this.randIndexAssoc.columnB_solution = this.getSolutionForColumn('columnB');
         this.randIndexAssoc.columnC_solution = this.getSolutionForColumn('columnC');
         this.randIndexAssoc.columnD_solution = this.getSolutionForColumn('columnD');
+        this.finallSolution = this.randIndexAssoc.finallSolutions;
+        console.log("final",this.finallSolution);
         console.log("rand", this.randIndexAssoc);
-        console.log('columnB:', this.randIndexAssoc.columnA_solution);
-
       })
     ).subscribe(assoc => {
     });
