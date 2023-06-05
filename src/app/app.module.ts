@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './component/user/user.component';
 import { AssociationComponent } from './component/association/association.component';
+
 @NgModule({
   declarations: [
     AppComponent,

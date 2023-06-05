@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, catchError, of, switchMap, tap } from 'rxjs';
+import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { User } from 'src/app/interface/User-Interface';
 import { ScoreService } from 'src/app/service/score.service';
 import { UserService } from 'src/app/service/user.service';
@@ -22,6 +22,21 @@ export class UserComponent {
       username: ['', Validators.required]
     })
   }
+
+  sortUsersByScoreDesc() {
+    this.users$ = this.users$.pipe(
+      map(users => users.sort((a, b) => a.userscore - b.userscore))
+    );
+  }
+  
+  
+
+  sortUsersByScoreAsc() {
+    this.users$ = this.users$.pipe(
+      map(users => users.sort((a, b) => b.userscore - a.userscore))
+    );
+  }
+  
 
   onUser() {
     if (this.userForm.valid) {

@@ -40,13 +40,20 @@ export class AssociationComponent {
 
   finallColumn() {
     if (this.finallResult == this.finallSolution) {
-      this.itemText['A'] = this.randIndexAssoc.columnA
+      this.itemText['A'] = this.randIndexAssoc.columnA;
       this.itemText['B'] = this.randIndexAssoc.columnB
       this.itemText['C'] = this.randIndexAssoc.columnC
       this.itemText['D'] = this.randIndexAssoc.columnD
+      this.columnAInput = this.randIndexAssoc.columnA_solution;
+      this.columnBInput = this.randIndexAssoc.columnB_solution;
+      this.columnCInput = this.randIndexAssoc.columnC_solution;
+      this.columnDInput = this.randIndexAssoc.columnD_solution;
+
       this.isColumnGueseedF = true;
       this.scoreService.addToScore(15); // Dodaj 15 poena
-      this.router.navigate(['/user']);
+       setTimeout(()=> {
+        this.router.navigate(['/user']);
+       },3000)
     } else {
       this.finallResult = '';
       alert("Try again")
@@ -65,7 +72,7 @@ export class AssociationComponent {
   }
 
   handleInputChangeC(): void {
-    const solution = this.getSolutionForColumn('columnC');
+    const solution = this.getSolutionForColumn('columnB');
     if (this.columnCInput === solution) {
       this.itemText['C'] = this.randIndexAssoc.columnC
       this.isColumnGueseedC = true;
