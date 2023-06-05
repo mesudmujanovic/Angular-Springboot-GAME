@@ -13,47 +13,47 @@ import { UserService } from 'src/app/service/user.service';
 export class UserComponent {
 
   public users$: Observable<User[]>
-  score: number = 10;
+  userScore = this.scoreService.getScore();
   userForm: FormGroup
   constructor(private scoreService: ScoreService,
-              private formBuilder: FormBuilder,
-              private userService: UserService){
+    private formBuilder: FormBuilder,
+    private userService: UserService) {
     this.userForm = this.formBuilder.group({
-      username:['',Validators.required]
+      username: ['', Validators.required]
     })
   }
 
-  onUser(){
-    if(this.userForm.valid){
-      const trenutnoBodovanje = this.scoreService.getScore();
-      const userscore = trenutnoBodovanje + this.score;
-      console.log(userscore);
-       const username = this.userForm.get('username')?.value;
-       this.userService.addUser(userscore,username).pipe(
-        switchMap(() => this.allUsers() ),
-        tap( response =>{
-          console.log("ukupno",userscore, "username",username);
+  onUser() {
+    if (this.userForm.valid) {
+      const userscore = this.scoreService.getScore();
+      const username = this.userForm.get('username')?.value;
+      this.userService.addUser(userscore, username).pipe(
+        switchMap(() => this.allUsers()),
+        tap(response => {
+          console.log("ukupno", userscore, "username", username);
         })
-       ).subscribe( () =>{
+      ).subscribe(() => {
         console.log("subscribe");
-       })
+      })
     }
   }
 
-  allUsers(): Observable<User[]>{
-   return this.users$ = this.userService.allUsers().pipe(
-    catchError( error =>{
-      console.log("error",error);
-       return of ([]);
-    })
-   )
+  allUsers(): Observable<User[]> {
+    return this.users$ = this.userService.allUsers().pipe(
+      catchError(error => {
+        console.log("error", error);
+        return of([]);
+      })
+    )
   }
 
-  ngOnInit(){
+  ngOnInit() {
+    console.log("userscore", this.userScore);
+
     this.allUsers().subscribe(
       users => {
         console.log(users);
       }
-     )
+    );
   }
 }

@@ -1,44 +1,46 @@
 <div class="flex-container">
-    <div class="column" *ngIf="randIndexAssoc">
-      <div *ngFor="let item of randIndexAssoc.columnA; let i = index" (click)="showText(item, 'A', i)" class="item">
-        <span *ngIf="!itemText['A'][i]">Kliknite da otkrijete</span>
-        <span *ngIf="itemText['A'][i]">{{itemText['A'][i]}}</span>
-      </div>
-     <input type="text" [(ngModel)]="columnAInput"
-     placeholder="Column A"  (change)="handleInputChangeA()">
+  <div class="column columnA" *ngIf="randIndexAssoc">
+    <div *ngFor="let item of randIndexAssoc.columnA; let i = index" (click)="showText(item, 'A', i)" class="item">
+      <div class="text" *ngIf="!itemText['A'][i]">Kliknite da otkrijete</div>
+      <div class="text" *ngIf="itemText['A'][i]">{{itemText['A'][i]}}</div>
     </div>
-  
-    <div class="column columnB-D" *ngIf="randIndexAssoc">
-      <div *ngFor="let item of randIndexAssoc.columnB; let i = index" (click)="showText(item, 'B', i)" class="item">
-        <span *ngIf="!itemText['B'][i]">Kliknite da otkrijete</span>
-        <span *ngIf="itemText['B'][i]">{{itemText['B'][i]}}</span>
-      </div>
-      <input type="text" [(ngModel)]="columnBInput"  (change)="handleInputChangeB()"
+    <input type="text" [(ngModel)]="columnAInput" placeholder="Column A" [disabled]="isColumnGueseedA"
+      (change)="handleInputChangeA()">
+  </div>
+
+  <div class="column" *ngIf="randIndexAssoc">
+    <div *ngFor="let item of randIndexAssoc.columnB; let i = index" (click)="showText(item, 'B', i)" class="item">
+      <div class="text" *ngIf="!itemText['B'][i]">Kliknite da otkrijete</div>
+      <div class="text" *ngIf="itemText['B'][i]">{{itemText['B'][i]}}</div>
+    </div>
+    <input type="text" [(ngModel)]="columnBInput" [disabled]="isColumnGueseedB" (change)="handleInputChangeB()"
       placeholder="Column B">
+  </div>
+</div>
+
+<div class="finall">
+  <input type="text" placeholder="Finall Solution" [disabled]="isColumnGueseedF" [(ngModel)]="finallResult"
+    (change)="finallColumn()">
+</div>
+
+<div class="flex-container flex">
+  <div class="column" *ngIf="randIndexAssoc">
+    <div *ngFor="let item of randIndexAssoc.columnC; let i = index" (click)="showText(item, 'C', i)" class="item">
+      <div class="text" *ngIf="!itemText['C'][i]">Kliknite da otkrijete</div>
+      <div class="text" *ngIf="itemText['C'][i]">{{itemText['C'][i]}}</div>
     </div>
+    <input type="text" placeholder="Column C" [(ngModel)]="columnCInput" [disabled]="isColumnGueseedC"
+      (change)="handleInputChangeC()">
+
   </div>
 
-  <div class="finall">
-   <input type="text" placeholder="Finall Solution" [(ngModel)]="finallResult" (change)="finallColumn()">
-  </div>
-  
-  <div class="flex-container">
-    <div class="column" *ngIf="randIndexAssoc">
-      <div *ngFor="let item of randIndexAssoc.columnC; let i = index" (click)="showText(item, 'C', i)" class="item">
-        <span *ngIf="!itemText['C'][i]">Kliknite da otkrijete</span>
-        <span *ngIf="itemText['C'][i]">{{itemText['C'][i]}}</span>
-      </div>
-      <input type="text" placeholder="Column C" [(ngModel)]="columnCInput"  (change)="handleInputChangeC()">
-
+  <div class="column" *ngIf="randIndexAssoc">
+    <div *ngFor="let item of randIndexAssoc.columnD; let i = index" (click)="showText(item, 'D', i)" class="item">
+      <div class="text" *ngIf="!itemText['D'][i]">Kliknite da otkrijete</div>
+      <div class="text" *ngIf="itemText['D'][i]">{{itemText['D'][i]}}</div>
     </div>
-  
-    <div class="column columnB-D" *ngIf="randIndexAssoc">
-      <div *ngFor="let item of randIndexAssoc.columnD; let i = index" (click)="showText(item, 'D', i)" class="item">
-        <span *ngIf="!itemText['D'][i]">Kliknite da otkrijete</span>
-        <span *ngIf="itemText['D'][i]">{{itemText['D'][i]}}</span>
-      </div>
-      <input placeholder="Column D" type="text" [(ngModel)]="columnDInput"  (change)="handleInputChangeD()">
+    <input placeholder="Column D" type="text" [(ngModel)]="columnDInput" [disabled]="isColumnGueseedD"
+      (change)="handleInputChangeD()">
 
-    </div>
   </div>
-  
+</div>

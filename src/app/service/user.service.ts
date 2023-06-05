@@ -12,8 +12,12 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public addUser(userscore: number, username: string): Observable<User> {
-    const user = {userscore, username};
-  return this.http.post<User>(`${BASE_ULR}/user/addUser`,user);
+    const user: User = {
+      userscore: userscore,
+      username: username
+    };
+    
+    return this.http.post<User>(`${BASE_ULR}/user/addUser`,user);
   }
 
   public allUsers(): Observable<User[]>{

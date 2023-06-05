@@ -26,11 +26,10 @@ export class MyNumberComponent {
   public toShow: any;
   public currValue: string = '';
   public counterButton: number = 0;
-  public score: number = 0;
 
   constructor(private http: HttpClient,
     private myNumberService: MyNumberService,
-    private serviceScore: ScoreService,
+    private scoreService: ScoreService,
     private router: Router) { }
 
   addNumToDivs() {
@@ -77,12 +76,6 @@ export class MyNumberComponent {
         this.num5 = randomNumArr.number5;
         this.num6 = randomNumArr.number6;
         this.result = randomNumArr.result;
-        console.log(numbers);
-        console.log(randomNumArr);
-        console.log(this.num1, this.num2);
-        console.log(this.num3, this.num4);
-        console.log(this.num5, this.num6, this.result);
-
       }
     )
   }
@@ -106,12 +99,8 @@ export class MyNumberComponent {
       try {
         this.toShow = eval(this.toShow);
         alert("Čestitamo! Pogodili ste tačan broj!");
-        this.score += 10;
-        const nowScore = this.serviceScore.getScore();
-        const allScore = nowScore + this.score;
-        this.serviceScore.setScore(allScore);
-        this.router.navigate(['/user']);
-        console.log(this.score);
+        this.scoreService.addToScore(15);
+        this.router.navigate(['/association']);
       } catch (err) {
         console.log(err);
       }
@@ -120,7 +109,6 @@ export class MyNumberComponent {
         "Žao nam je, niste pobedili!! Broj koji ste uneli ne pripada grupi vaših izabranih brojeva, pokušajte ponovo"
       );
       this.router.navigate(['/user']);
-      // location.reload();
     }
   }
 
