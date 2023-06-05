@@ -35,12 +35,22 @@ public class AssociationEntity {
     @Column(name = "solution")
     private List<String> solutions;
 
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Column(name = "finall_solutions")
+    private List<String> finallSolutions;
 
     public void addSolution(String solution) {
         if (solutions == null) {
             solutions = new ArrayList<>();
         }
         solutions.add(solution);
+    }
+
+    public void addFinalSolution(String finalSolution) {
+        if (finallSolutions == null) {
+            finallSolutions = new ArrayList<>();
+        }
+        finallSolutions.add(finalSolution);
     }
 
 

@@ -18,6 +18,5 @@ public class AssociationResponse {
 
     private List<String> solutions;
 
-
-
+    private List<String> finallSolutions;
 }

@@ -43,6 +43,7 @@ public class QuestionsAssociation {
         entity.addSolution("columnB_solution cvet");
         entity.addSolution("columnC_solution ptica");
         entity.addSolution("columnD_solution svetlo");
+        entity.addFinalSolution("fenix");
 
         return entity;
     }
@@ -87,7 +88,7 @@ public class QuestionsAssociation {
         entity.addSolution("columnB_solution svetlost");
         entity.addSolution("columnC_solution svezina");
         entity.addSolution("columnD_solution energija");
-
+        entity.addFinalSolution("vazduh");
         return entity;
     }
 

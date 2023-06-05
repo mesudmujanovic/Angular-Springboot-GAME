@@ -19,6 +19,9 @@ public class AssociationDto {
 
     private List<String> solutions;
 
+    private List<String> finallSolutions;
+
+
 
     public static AssociationDto fromRequestToDto(AssociationRequest associationRequest){
         AssociationDto associationDto = new AssociationDto();
@@ -27,6 +30,7 @@ public class AssociationDto {
         associationDto.setColumnC(associationRequest.getColumnC());
         associationDto.setColumnD(associationRequest.getColumnD());
         associationDto.setSolutions(associationRequest.getSolutions());
+        associationDto.setFinallSolutions(associationRequest.getFinallSolutions());
         return associationDto;
     }
 
@@ -38,6 +42,7 @@ public class AssociationDto {
         associationResponse.setColumnC(this.getColumnC());
         associationResponse.setColumnD(this.getColumnD());
         associationResponse.setSolutions(this.getSolutions());
+        associationResponse.setFinallSolutions(this.getFinallSolutions());
         return associationResponse;
     }
 

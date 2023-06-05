@@ -16,5 +16,6 @@ public class AssociationRequest {
 
     private List<String> solutions;
 
+    private List<String> finallSolutions;
 
 }
